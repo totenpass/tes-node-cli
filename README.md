@@ -28,42 +28,44 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
-* [`tptes decrypt [FILE]`](#tptes-decrypt-file)
-* [`tptes encrypt [FILEORTEXT]`](#tptes-encrypt-fileortext)
+* [`tptes $ tescli decrypt <file>`](#tptes--tescli-decrypt-file)
+* [`tptes $ tescli encrypt <file>`](#tptes--tescli-encrypt-file)
 * [`tptes help [COMMAND]`](#tptes-help-command)
 
-## `tptes decrypt [FILE]`
+## `tptes $ tescli decrypt <file>`
 
-Uses a passphrase to decrypt a base64 file
+Uses a passphrase to decrypt a base64 encrypted with the Total Encryption Standard
 
 ```
 USAGE
-  $ tptes decrypt [FILE]
+  $ tptes $ tescli decrypt <file>
 
 OPTIONS
-  -f, --force
-  -h, --help       show CLI help
-  -n, --name=name  name to print
+  -d, --dest=dest  Decryption destination file
+  -h, --help       Shows help
 ```
 
 _See code: [src/commands/decrypt.ts](https://github.com/totenpass/node-cli/blob/v1.0.0/src/commands/decrypt.ts)_
 
-## `tptes encrypt [FILEORTEXT]`
+## `tptes $ tescli encrypt <file>`
 
-Uses a passphrase to encrypt a file
+Uses a passphrase to encrypt a file to base64 using the Total Encryption Standard
 
 ```
 USAGE
-  $ tptes encrypt [FILEORTEXT]
+  $ tptes $ tescli encrypt <file>
 
 OPTIONS
   -d, --dest=dest              Encryption destination file
-  -h, --help                   Show help
+  -h, --help                   Shows help
   -m, --memory=memory          Memory multiplier
   -o, --operations=operations  Number of operations
 
-DESCRIPTION
-  Uses a passphrase to encrypt a file
+EXAMPLES
+  $ tescli encrypt ./test.txt -m 2
+  $ tescli encrypt ./test.txt -o 4
+  $ tescli encrypt ./test.txt -d ./encrypted-test.tsx
+  $ tescli encrypt ./test.txt -d ./encrypted-test.tsx -m 2 -o 4
 ```
 
 _See code: [src/commands/encrypt.ts](https://github.com/totenpass/node-cli/blob/v1.0.0/src/commands/encrypt.ts)_
